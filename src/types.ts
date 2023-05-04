@@ -9,7 +9,6 @@ export enum VehicleTurn {
   Left = "L",
   Right = "R",
   Through = "T",
-  Unknown = "U",
 }
 
 export enum PedestrianTurn {

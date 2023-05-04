@@ -1,10 +1,10 @@
 import { getColumnInformation } from "../utils";
 
-function TableHeader({
-  selectedRoadUserType,
-}: {
+interface TableHeaderProps {
   selectedRoadUserType: string;
-}) {
+}
+
+function TableHeader({ selectedRoadUserType }: TableHeaderProps) {
   const [directions, turns] = getColumnInformation(selectedRoadUserType);
   return (
     <thead className="text-xs text-gray-700 uppercase bg-gray-100">

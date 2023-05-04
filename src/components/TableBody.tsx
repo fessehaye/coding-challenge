@@ -6,15 +6,13 @@ import {
   getTotalCount,
 } from "../utils";
 
-function TableBody({
-  header,
-  jsonData,
-  selectedRoadUserType,
-}: {
+interface TableBodyProps {
   header: string;
   jsonData: GroupedData;
   selectedRoadUserType: string;
-}) {
+}
+
+function TableBody({ header, jsonData, selectedRoadUserType }: TableBodyProps) {
   const [directions, turns] = getColumnInformation(selectedRoadUserType);
   const sortedTimeStamps = Object.keys(jsonData).sort();
 
@@ -24,7 +22,7 @@ function TableBody({
         <tr key={key} className="bg-white">
           {index === 0 && (
             <th
-              rowSpan={Object.keys(jsonData).length}
+              rowSpan={sortedTimeStamps.length}
               className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
             >
               {header}

@@ -3,17 +3,19 @@ import TableBody from "./TableBody";
 import TableHeader from "./TableHeader";
 import { checkIfAMOrPM, getPeakHour, isSameDay } from "../utils";
 
+interface DataTableProps {
+  jsonData: GroupedData;
+  peakHour: boolean;
+  selectedRoadUserType: string;
+  selectedReportDate: string;
+}
+
 function DataTable({
   jsonData,
   peakHour,
   selectedRoadUserType,
   selectedReportDate,
-}: {
-  jsonData: GroupedData;
-  peakHour: boolean;
-  selectedRoadUserType: string;
-  selectedReportDate: string;
-}) {
+}: DataTableProps) {
   const todayData: GroupedData = Object.keys(jsonData)
     .filter((key) => isSameDay(key, selectedReportDate))
     .reduce((cur, key) => {

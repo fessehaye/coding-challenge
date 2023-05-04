@@ -1,16 +1,18 @@
+interface FilterProps {
+  roadUserTypes: string[];
+  peakHour: boolean;
+  setPeakHour: React.Dispatch<React.SetStateAction<boolean>>;
+  selectedRoadUserType: string;
+  setSelectedRoadUserType: React.Dispatch<React.SetStateAction<string>>;
+}
+
 function Filter({
   roadUserTypes,
   peakHour,
   setPeakHour,
   selectedRoadUserType,
   setSelectedRoadUserType,
-}: {
-  roadUserTypes: string[];
-  peakHour: boolean;
-  setPeakHour: (value: boolean) => void;
-  selectedRoadUserType: string;
-  setSelectedRoadUserType: (value: string) => void;
-}) {
+}: FilterProps) {
   return (
     <div className="flex items-center flex-wrap bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-6">
       <div className="flex mr-4 flex-wrap w-2/3">

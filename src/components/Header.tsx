@@ -1,12 +1,14 @@
+interface HeaderProps {
+  reportDates: string[];
+  selectedReportDate: string;
+  setSelectedReportDate: React.Dispatch<React.SetStateAction<string>>;
+}
+
 function Header({
   reportDates,
   selectedReportDate,
-  handleSelectChange,
-}: {
-  reportDates: string[];
-  selectedReportDate: string;
-  handleSelectChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-}) {
+  setSelectedReportDate,
+}: HeaderProps) {
   const formatDate = (timestamp: string) => {
     const date = new Date(timestamp);
     const formatter = new Intl.DateTimeFormat("en-US", {
@@ -30,7 +32,7 @@ function Header({
         </label>
         <select
           id="reportDate"
-          onChange={handleSelectChange}
+          onChange={(event) => setSelectedReportDate(event.target.value)}
           value={selectedReportDate}
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2"
         >

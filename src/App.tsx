@@ -35,16 +35,12 @@ function App() {
     fetchData();
   }, []);
 
-  function handleSelectChange(event: React.ChangeEvent<HTMLSelectElement>) {
-    setSelectedReportDate(event.target.value);
-  }
-
   return (
     <main className="bg-slate-300 w-full min-h-screen overflow-auto">
       <Header
         reportDates={reportDates}
         selectedReportDate={selectedReportDate}
-        handleSelectChange={handleSelectChange}
+        setSelectedReportDate={setSelectedReportDate}
       />
       <div className="mx-auto max-w-screen-2xl p-4">
         <Filter
